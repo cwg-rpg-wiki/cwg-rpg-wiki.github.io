@@ -1,24 +1,29 @@
 # How to transfer my local settings from the original wiki
 
-You want to read this when you want to transfer your settings from the original wiki https://cwg-rpg.github.io/ to the copy hosted by this repository https://cwg-rpg-wiki.github.io/
+Use these instructions to transfer your saved settings from the original wiki, https://cwg-rpg.github.io/, to this copy: https://cwg-rpg-wiki.github.io/.
 
-This instruction involves messing with your browser's web developer tools.
-This is potentially dangerous to your security. If you are at any point not sure what is going on, then do not proceed.
+Use the same browser and profile you previously used for the original wiki, not a private/incognito window.
 
-1. Open https://cwg-rpg.github.io/. Yeah, I know, it shows 404 now, anyways
+**Before you start:**
+- These commands copy the original site's browser storage to your clipboard, then import it into the copy. They do not send it to a third party. Trust me bro.
+- Importing overwrites settings on the destination site. Careful there.
+- Never paste console code you do not understand. If you are unsure what a step does, please stop.
+
+1. Open https://cwg-rpg.github.io/. Even if it shows a 404 error, your browser can still retain the settings saved for that origin.
 2. Press F12 to open web developer tools
 3. Open the "Console" tab
 4. Paste the following script and press enter
     ```js
     copy(JSON.stringify(localStorage))
     ```
-    It should copy your cwg wiki settings to your clipboard
+    This copies your saved browser storage to the clipboard.
 5. Open https://cwg-rpg-wiki.github.io/
 6. Press F12, open the "Console" tab
-7. Paste the following code and press enter
+7. Type `const data = ` in the Console, then paste the JSON copied in step 4 and press Enter. The result should look something like this (your keys and values will differ):
     ```js
-    const data = PASTE YOUR SETTINGS HERE
+    const data = {"cwgSetup":"{\"tier\":12}"};
     ```
+    Use your copied data, not the example above.
 8. Paste the following code and press enter
     ```js
     Object.entries(data).forEach(([key, value]) => {
@@ -26,4 +31,4 @@ This is potentially dangerous to your security. If you are at any point not sure
     });
     ```
 9. Refresh the web page (F5)
-10. Fin
+10. Done. Your transferred settings should now be available.
