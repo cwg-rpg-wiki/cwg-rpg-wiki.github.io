@@ -9,6 +9,7 @@ Use the same browser and profile you previously used for the original wiki, not 
 - Importing overwrites settings on the destination site. Careful there.
 - Never paste console code you do not understand. If you are unsure what a step does, please stop.
 
+**Instructions:**
 1. Open https://cwg-rpg.github.io/. Even if it shows a 404 error, your browser can still retain the settings saved for that origin.
 2. Press F12 to open web developer tools
 3. Open the "Console" tab
