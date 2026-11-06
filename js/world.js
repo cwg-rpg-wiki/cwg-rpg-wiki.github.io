@@ -10,7 +10,6 @@
     return `<div class="evrow"><span class="evl"><span class="evdot"></span>Event zone</span><span>${EZ.monsters.map(m => mlink(m.id)).join(', ')} in ${link('zone', EZ.zone, 'Event Zone')}${EZ.monsters[0].respawn_s ? ` <span class="small">· respawns every ${EZ.monsters[0].respawn_s} s</span>` : ''}</span></div>`
       + `<div class="evrow evsub">Drops ${EZ.drops.map(d => `${ilink(d.item)} <span class="small">${K.dropPct(d.chance, d.item)}</span>`).join(', ')}${mk ? `<br>${mk}` : ''}</div>`; };
   P.home = () => {
-    const H = (W.heroes || []).length, T = (W.tierlist && W.tierlist.heroes || []).length;
     const card = (h, txt, sub) => `<a class="card home" href="#${h}"><h3>${txt}</h3><p class="small">${sub}</p></a>`;
     const EV = (W.events || []).filter(e => e.on);
     const ez = K.ezShort(); const strip = EV.length || ez ? `<div class="evstrip col">${EV.length ? `<div class="evrow"><span class="evl"><span class="evdot"></span>Live events</span>${EV.map(e => `<a class="evchip ev-${e.id}" href="#events" title="${esc(e.what)}">${esc(e.chip)}</a>`).join('')}</div>` : ''}${ez}</div>` : '';
@@ -23,7 +22,6 @@
       ${card('items', 'Items', `${Object.keys(I).length.toLocaleString()} items by zone or type: stats, sources, recipes`)}
       ${card('recipes', 'Recipes', `${(W.recipe_groups || []).length} crafting recipes and enhancement chains`)}
       ${card('heroes', 'Heroes', `${[...new Set((W.heroes || []).map(h => h.lineage))].length} heroes with tier 1, 2 and 3 abilities`)}
-      ${card('tierlist', 'Tier list', 'Tier 3 of every hero at best in slot: boss, AoE, AFK farm, utility, survival')}
       ${card('guides', 'Guides', 'Early game route and gear progression by slot, with checklists')}
       ${card('systems', 'Game systems', 'Drop Odds, potions, stat shops, awakening, slots, attributes, party dungeons, potential, sailing, relics, Dimension Link')}
       ${card('achievements', 'Achievements', `${((W.achievements || {}).list || []).length} journal entries and the bonuses they pay`)}
