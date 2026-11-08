@@ -69,7 +69,7 @@
     const m = M[id]; if (!m) return '<p>Unknown monster.</p>';
     /* Bestiary entry (map 1.2.x): rarity and register chance per kill, who rolls; the Bestiary tab has the rest */
     const be = ((W.bestiary || {}).entries || {})[id]; const bw = be && be.counts_when && be.counts_when !== 'killer only' ? ((be.counts_when.match(/within\s+(\d+)/) || [])[1]) : null;
-    const bestLine = be ? `<p class="small">${link('bestiary', '', 'Bestiary')}: ${esc(be.rarity)}, ${pct(be.chance_pct)} per kill, ${be.counts_when && be.counts_when !== 'killer only' ? `rolled by every hero within ${bw ? esc(bw) + ' ' : ''}range` : 'rolled only for the player who kills it'}</p>` : '';
+    const bestLine = be ? `<p class="small">${link('bestiary', '', 'Bestiary')}: <span class="bestiary-type-${esc(be.rarity.toLowerCase())}">${esc(be.rarity)}</span>, ${pct(be.chance_pct)} per kill, ${be.counts_when && be.counts_when !== 'killer only' ? `rolled by every hero within ${bw ? esc(bw) + ' ' : ''}range` : 'rolled only for the player who kills it'}</p>` : '';
     return `<h2>${esc(m.name)} ${tag(m.kind, 'acc')}</h2>
     ${m.zones.length ? `<h3>Location</h3><ul>${m.zones.map(z => `<li>${zlink(z.zone)} · ${esc(z.kind)}${z.raid ? ' · ' + esc(z.raid) : ''}${z.level ? ` · Lv ${esc(z.level)}` : ''}${z.hp ? ` · ${fmt(z.hp)} HP` : ''}${z.spawn_count ? ` · ${z.spawn_count} spawn${z.spawn_count > 1 ? 's' : ''}` : ''}${z.respawn_s != null ? ` · respawn ${z.respawn_s} s` : ''}</li>`).join('')}</ul>` : '<p class="small">No fixed spawn. Shows up from a summon, a dungeon wave or an event.</p>'}
     ${m.gold != null ? `<p><b>Kill reward:</b> ${fmt(m.gold)} gold · ${fmt(m.exp)} EXP${m.lumber ? ' · ' + fmt(m.lumber) + ' lumber' : ''} </p>` : `<p><b>Kill reward:</b> none</p>`}
