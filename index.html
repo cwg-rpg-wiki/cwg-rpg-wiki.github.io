@@ -35,6 +35,10 @@ body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16p
 .wrap{max-width:1100px;margin:0 auto}
 h1{font-family:var(--display);font-weight:700;font-size:clamp(26px,5vw,40px);line-height:1.05;margin:0 0 4px}
 .sub{color:var(--muted);margin:0 0 14px;max-width:80ch}
+.site-meta{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 20px;margin-bottom:14px}
+.site-meta .sub{margin:0}
+.site-meta .leaderboard{color:var(--muted);border-bottom-color:transparent;font-size:14px;white-space:nowrap}
+.site-meta .leaderboard:hover,.site-meta .leaderboard:focus-visible{color:var(--accent);border-bottom-color:var(--accent)}
 h2{font-family:var(--display);font-weight:500;font-size:24px;margin:24px 0 10px}
 h3{font-family:var(--display);font-weight:700;font-size:17px;margin:16px 0 6px}
 h4{font-size:14px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin:14px 0 4px}
@@ -137,7 +141,10 @@ input.gstep{width:20px;height:20px;accent-color:var(--accent);cursor:pointer;mar
 </head><body><div class="wrap">
 <a href="#home" style="border:none"><img class="banner" src="img_banner.jpg" alt="CWG RPG - Covenant of Warring Gods"></a>
 <h1 class="vh">CWG RPG Wiki</h1>
+<div class="site-meta">
 <p class="sub"><img src="img_map.png" alt="" style="width:28px;height:28px;vertical-align:-8px;margin-right:6px;border-radius:4px">Map version 1.2.4<span id="upd"> · Wiki updated 3 Nov 2026</span></p>
+<a class="leaderboard" href="https://cwg2-leaderboard.rskiland.workers.dev/#leaderboard" target="_blank" rel="noopener" aria-label="Leaderboard (opens in a new tab)">Leaderboard <span aria-hidden="true">↗</span></a>
+</div>
 <div class="search"><input id="q" type="search" placeholder="search an item, monster, zone, hero, command ..." autofocus=""><span class="small" id="qcount"></span></div>
 <nav class="tabs" id="tabs">
 <a href="#home">Home</a><a href="#zones">Zones</a><a href="#monsters" class="">Monsters</a><a href="#items" class="">Items</a><a href="#recipes" class="">Recipes</a><a href="#heroes">Heroes</a><a href="#systems">Game Systems</a><a href="#achievements">Achievements</a><a href="#bestiary">Bestiary</a><a href="#events">Events</a><a href="#pets">Pets</a><a href="#guides">Guides</a><a href="#planner" class="">Planner</a><a href="#calc">Calculators</a>
